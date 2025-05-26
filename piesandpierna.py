@@ -4,6 +4,8 @@ precioAcero=2800/20
 precioSaroniraPrimordia=1800/20
 precioTierraEterna=280/20
 precioSombraEterna=450/20
+precioFuegoEterno=750/20
+precioAguaEterna=350/20
 
 def pierna():
    return 12,8,20
@@ -32,25 +34,27 @@ print(f"Costo total por pierna: {costoPorPierna:2f} oros")
 
 
 def pies():
-   return 8,12,5
+   return 8,6,6,5
 
-acero_titanes_pies,tierra_eterna,saronita_primordial_pies=pies()
+acero_titanes_pies,fuego_eterno,agua_eterna,saronita_primordial_pies=pies()
 
-precioUndPIes=(precioAcero*acero_titanes_pies)+(precioTierraEterna*tierra_eterna)+(precioSaroniraPrimordia*saronita_primordial_pies)
+precioUndPIes=(precioAcero*acero_titanes_pies)+(precioFuegoEterno*fuego_eterno)+(precioSaroniraPrimordia*saronita_primordial_pies)+(agua_eterna*precioAguaEterna)
 #print(f"\n Precio por und de pies: {precioUndPIes}")
 
 
 factor=int(input("ingrese la cantidad de pieza de pies: "))
 acero_titanes_pies*=factor
-tierra_eterna*=factor
+agua_eterna*=factor
+fuego_eterno*=factor
 saronita_primordial_pies*=factor
 
 print(f"Materiales x {factor}")
 print(f"Acero de titanes: {acero_titanes_pies}")
 print(f"Saronita primordial: {saronita_primordial_pies}")
-print(f"Tierra eterna: {tierra_eterna}")
+print(f"Agua eterna: {agua_eterna}")
+print(f"Fuego eterno: {fuego_eterno}")
 
-costoPorPies=(acero_titanes_pies*precioAcero)+(saronita_primordial_pies*precioSaroniraPrimordia)+(tierra_eterna*precioTierraEterna)
+costoPorPies=(precioAcero*acero_titanes_pies)+(precioFuegoEterno*fuego_eterno)+(precioSaroniraPrimordia*saronita_primordial_pies)+(agua_eterna*precioAguaEterna)
 print(f"\n Precio por und de pies: {precioUndPIes}")
 print(f"Costo total por pie fabricado: {costoPorPies:2f}")
 def total_materiales():
@@ -58,13 +62,15 @@ def total_materiales():
     total_acero_titanes=acero_titanes_pies+acero_titanes_pierna
     total_saronita_primordial=saronita_primordial_pierna+saronita_primordial_pies
     total_sombraEterna=sombra_eterna
-    total_tierraEterna=tierra_eterna
+    total_AguaEterna=agua_eterna
+    total_FuegoEterno=fuego_eterno
 
     print("\n ---------TOTAL MATERIALES---------")
     print(f"Acero de titanes: {total_acero_titanes}")   
     print(f"Saronita Primordial: {total_saronita_primordial}")
     print(f"Sombra Eterna: {total_sombraEterna}")
-    print(f"Tierra Eterna: {total_tierraEterna}")
+    print(f"Agua Eterna: {total_AguaEterna}")
+    print(f"Fuego Eterno: {total_FuegoEterno}")
 
     total_costo=costoPorPies+costoPorPierna
     print(f"costo total general: {total_costo}")
@@ -74,3 +80,5 @@ costoPierna=3500
 constoPies=2400
 print(costoPierna*3)
 print(constoPies*3)
+subasta=costoPierna+constoPies
+print(subasta*3)
